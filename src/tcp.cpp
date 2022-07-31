@@ -108,11 +108,6 @@ void TcpServer::server_listen()
 
 void TcpServer::handle_connection(int fd)
 {
-    // Connection* conn = new Connection(fd);
     std::unique_ptr<Connection> conn_ptr { new Connection(fd) };
     tp.add_connection(std::move(conn_ptr));
-    //conn.run_connection(fd, html_folder);
-    // std::thread nthread(&Connection::run_connection, conn);
-    //conn.run_connection(fd, html_folder);
-    //nthread.detach();
 }
